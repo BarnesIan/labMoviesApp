@@ -36,9 +36,6 @@ const ActorDetails = ({ actor }) => {  // Don't miss this!
           icon={<StarRate />}
           label={`${actor.popularity}`}
         />
-        <Typography variant="h6" component="p">
-        They are known for {actor.known_for_department}.
-      </Typography>
         
       <Fab
         color="secondary"

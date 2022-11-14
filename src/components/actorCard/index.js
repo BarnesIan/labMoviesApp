@@ -33,7 +33,7 @@ const actor = props.actor;
           <CardContent>
           <Link to={`/actors/${actor.id}`}>
             <Button  variant="outlined" size="medium" color="primary">
-            More Info ...
+            Bio
           </Button>
         </Link>
           
