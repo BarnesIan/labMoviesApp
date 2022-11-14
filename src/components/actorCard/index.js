@@ -7,6 +7,7 @@ import CardHeader from "@mui/material/CardHeader";
 import Typography from "@mui/material/Typography";
 import img from '../../images/film-poster-placeholder.png';//Change
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 
 export default function ActorCard(props){
@@ -31,6 +32,9 @@ const actor = props.actor;
           />
           <CardContent>
           <Link to={`/actors/${actor.id}`}>
+            <Button  variant="outlined" size="medium" color="primary">
+            More Info ...
+          </Button>
         </Link>
           
           </CardContent>
