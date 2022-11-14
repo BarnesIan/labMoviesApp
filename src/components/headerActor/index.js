@@ -28,7 +28,7 @@ const ActorHeader = (props) => {
 
       <Typography variant="h4" component="h3">
         {actor.title}
-        <a href={actor.homepage}>
+        <a href={"/actors"}>
           <HomeIcon color="primary" />
         </a>
         <br />
