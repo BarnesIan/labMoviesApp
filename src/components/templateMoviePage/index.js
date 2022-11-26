@@ -9,12 +9,13 @@ import Spinner from '../spinner'
 
 
 
-const TemplateMoviePage = ({ movie,action,title, children }) => {
-  const { data, error, isLoading, isError } = useQuery(
+const TemplateMoviePage = ({ movie,action,title, children}) => {
+ 
+  const { data, error,isLoading, isError } = useQuery(
     ["images", { id: movie.id }],
-    getMovieImages
+    getMovieImages,
   )
-
+  
 
 
   if (isLoading) {
@@ -27,6 +28,7 @@ const TemplateMoviePage = ({ movie,action,title, children }) => {
 
 
 const images = data.posters;
+
 
 
   return (
@@ -58,6 +60,7 @@ const images = data.posters;
           {children}
         </Grid>
       </Grid>
+      
     </>
     
   );

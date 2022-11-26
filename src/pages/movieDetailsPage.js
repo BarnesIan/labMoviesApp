@@ -5,11 +5,18 @@ import PageTemplate from "../components/templateMoviePage";
 import { getMovie } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
+import { getMovieCast } from "../api/tmdb-api";
+import MovieCast from "../components/movieCast";
+import Grid from "@mui/material/Grid";
+import CastTemplate from "../components/templateMovieCast";
 
 const MovieDetailsPage = (props) => {
   const { id } = useParams();
+  // const { data: cast } = useQuery(
+  //   ["cast", { id: id }],
+  //   getMovieCast);
 
-  const { data: movie, error, isLoading, isError } = useQuery(
+  const { data:movie, error, isLoading, isError } = useQuery(
     ["movie", { id: id }],
     getMovie
   );
@@ -21,6 +28,8 @@ const MovieDetailsPage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
+ // const actors = cast
+  //console.log(cast.cast)
   return (
     <>
       {movie ? (
@@ -28,10 +37,14 @@ const MovieDetailsPage = (props) => {
           <PageTemplate movie={movie}>
             <MovieDetails movie={movie} />
           </PageTemplate>
+        <Grid>
+   {/* <MovieCast action={actors} actors={actors}></MovieCast> */}
+      </Grid>
         </>
       ) : (
         <p>Waiting for movie details</p>
       )}
+    
     </>
   );
 };
