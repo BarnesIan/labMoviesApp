@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import MovieHeader from "../headerMovie";
 import Grid from "@mui/material/Grid";
 import ImageList from "@mui/material/ImageList";
@@ -8,11 +8,14 @@ import { useQuery } from "react-query";
 import Spinner from '../spinner'
 
 
-const TemplateMoviePage = ({ movie, children }) => {
-  const { data , error, isLoading, isError } = useQuery(
+
+const TemplateMoviePage = ({ movie,action,title, children }) => {
+  const { data, error, isLoading, isError } = useQuery(
     ["images", { id: movie.id }],
     getMovieImages
-  );
+  )
+
+
 
   if (isLoading) {
     return <Spinner />;
@@ -21,7 +24,10 @@ const TemplateMoviePage = ({ movie, children }) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  const images = data.posters 
+
+
+const images = data.posters;
+
 
   return (
     <>
@@ -53,6 +59,7 @@ const TemplateMoviePage = ({ movie, children }) => {
         </Grid>
       </Grid>
     </>
+    
   );
 };
 
