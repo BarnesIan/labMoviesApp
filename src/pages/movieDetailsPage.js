@@ -36,10 +36,11 @@ const MovieDetailsPage = (props) => {
         <>
           <PageTemplate movie={movie}>
             <MovieDetails movie={movie} />
-          </PageTemplate>
-        <Grid>
-   {/* <MovieCast action={actors} actors={actors}></MovieCast> */}
+            <Grid>
+   <CastTemplate movie = {movie} />
       </Grid>
+          </PageTemplate>
+    
         </>
       ) : (
         <p>Waiting for movie details</p>
