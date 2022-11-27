@@ -25,7 +25,6 @@ const FavouriteActorsPage = () => {
         return <Spinner />;
 
     const actors = favouriteActorQueries.map((q) => {
-        q.data.genre_ids = q.data.genres.map(g => g.id)
         return q.data
     });
 

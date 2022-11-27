@@ -11,9 +11,10 @@ import { Button } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { ActorsContext } from "../../contexts/actorsContext";
 import Avatar from '@mui/material/Avatar';
+import IconButton from "@mui/material/IconButton";
 
-export default function ActorCard(props,{action,actor}){
-//const actor = props.actor;
+export default function ActorCard(props,{actors,action}){
+const actor = props.actor;
 const {favouriteActor,addToFavourite} = useContext(ActorsContext);
 
 if (favouriteActor.find((id) => id === actor.id)) {
@@ -22,9 +23,9 @@ if (favouriteActor.find((id) => id === actor.id)) {
   actor.favouriteActor = false;
 }
 
-// const handleAddToFavourite = (e) => {
+// const handleAddToFavourites = (e) => {
 //   e.preventDefault();
-//   addToFavouriteActors(actor);
+//   addToFavourite(actors);
 // };
     return (
         <Card sx={{ maxWidth: 345 }}>
@@ -51,15 +52,27 @@ if (favouriteActor.find((id) => id === actor.id)) {
             }
           />
           <CardContent>
-            <CardActions disableSpacing>
-            {action(actor)}
+          {/* <CardActions disableSpacing>
+          <IconButton aria-label="add to favourites" onClick={handleAddToFavourites}>
+        <FavoriteIcon color="primary" fontSize="large" />
+    </IconButton>
+        <Button variant="outlined" size="medium" color="primary">
+        <Link to={`/actors/${actor.id}`}>
+          <Button variant="outlined" size="medium" color="primary">
+            More Info ...
+          </Button>
+        </Link>
+        </Button>
+      </CardActions> */}
+          </CardContent>
+          <CardActions disableSpacing>
+            {/* {action(actor)} */}
           <Link to={`/actors/${actor.id}`}>
             <Button  variant="outlined" size="medium" color="primary">
             Bio
           </Button>
         </Link>
         </CardActions>
-          </CardContent>
         </Card>
       );
 }
