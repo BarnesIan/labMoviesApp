@@ -3,20 +3,20 @@ import React, { useState } from "react";
 export const ActorsContext = React.createContext(null);
 
 const ActorsContextProvider = (props) => {
-  const [favouriteActor, setFavouriteActor] = useState( [] )
+  const [favourites, setFavourites] = useState( [] )
  
 
-  const addToFavouriteActor = (actor) => {
-    let newFavourites = [...favouriteActor];
-    if (!favouriteActor.includes(actor.id)) {
+  const addToFavourites = (actor) => {
+    let newFavourites = [...favourites];
+    if (!favourites.includes(actor.id)) {
       newFavourites.push(actor.id);
     }
-    setFavouriteActor(newFavourites);
+    setFavourites(newFavourites);
     console.log(newFavourites);
   };
 
-  const removeFromFavouriteActor = (actor) => {
-    setFavouriteActor( favouriteActor.filter(
+  const removeFromFavourites = (actor) => {
+    setFavourites( favourites.filter(
       (mId) => mId !== actor.id
     ) )
   };
@@ -24,9 +24,9 @@ const ActorsContextProvider = (props) => {
   return (
     <ActorsContext.Provider
     value={{
-      favouriteActor,
-      addToFavouriteActor,
-      removeFromFavouriteActor,
+      favourites,
+      addToFavourites,
+      removeFromFavourites,
     }}
   >
     {props.children}

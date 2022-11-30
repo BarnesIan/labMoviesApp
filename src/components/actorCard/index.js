@@ -13,14 +13,14 @@ import { ActorsContext } from "../../contexts/actorsContext";
 import Avatar from '@mui/material/Avatar';
 import IconButton from "@mui/material/IconButton";
 
-export default function ActorCard(props,{actors,action}){
-const actor = props.actor;
-const {favouriteActor,addToFavourite} = useContext(ActorsContext);
+export default function ActorCard({actor,action}){
+//const actor = props.actor;
+const {favourites,addToFavourites} = useContext(ActorsContext);
 
-if (favouriteActor.find((id) => id === actor.id)) {
-  actor.favouriteActor = true;
+if (favourites.find((id) => id === actor.id)) {
+  actor.favourite = true;
 } else {
-  actor.favouriteActor = false;
+  actor.favourite = false;
 }
 
 // const handleAddToFavourites = (e) => {
@@ -31,7 +31,7 @@ if (favouriteActor.find((id) => id === actor.id)) {
         <Card sx={{ maxWidth: 345 }}>
              <CardHeader
              avatar={
-              actor.favouriteActor ? (
+              actor.favourite ? (
                 <Avatar sx={{ backgroundColor: 'red' }}>
                   <FavoriteIcon />
                 </Avatar>
@@ -66,7 +66,7 @@ if (favouriteActor.find((id) => id === actor.id)) {
       </CardActions> */}
           </CardContent>
           <CardActions disableSpacing>
-            {/* {action(actor)} */}
+            {action(actor)}
           <Link to={`/actors/${actor.id}`}>
             <Button  variant="outlined" size="medium" color="primary">
             Bio

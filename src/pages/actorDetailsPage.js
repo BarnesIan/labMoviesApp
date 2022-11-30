@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from 'react-router-dom';
 import ActorDetails from "../components/actorDetails/";
 import PageTemplate from "../components/templateActorsPage";
-import { getActorsDetails } from '../api/tmdb-api'
+import { getActor } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
 
@@ -11,7 +11,7 @@ const ActorDetailsPage = (props) => {
 
   const { data: actor, error, isLoading, isError } = useQuery(
     ["actor", { id: id }],
-    getActorsDetails
+    getActor
   );
 
   if (isLoading) {

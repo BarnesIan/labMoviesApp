@@ -153,7 +153,7 @@ export const getTrending = () => {
         });
   };
 
-  export const getActorsDetails = (args) => {
+  export const getActor = (args) => {
     //console.log(args);
     const [, idPart] = args.queryKey;
     const { id } = idPart;
