@@ -12,12 +12,14 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools'
 import MoviesContextProvider from "./contexts/moviesContext";
 import ActorsContextProvider from "./contexts/actorsContext";
+import { AuthProvider } from "./contexts/authContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import TrendingMoviesPage from './pages/trendingMoviesPage';
 import MustWatchMoviesPage from './pages/mustWatchMoviesPage';
 import ActorsPage from './pages/actorsPage';
 import ActorsDetailsPage from './pages/actorDetailsPage';
 import SimilarMoviesPage from "./pages/similarMoviesPage";
+import Signup  from "./pages/signup"
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -34,6 +36,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <SiteHeader />
+        <AuthProvider>
         <MoviesContextProvider>
           <ActorsContextProvider>
           <Routes>
@@ -50,9 +53,11 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="*" element={<Navigate to="/" />} />
             <Route path="/reviews/:id" element={<MovieReviewPage />} />
+            <Route path="/users/signup" element={<Signup />} />
           </Routes>
           </ActorsContextProvider>
         </MoviesContextProvider>
+        </AuthProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
