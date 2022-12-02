@@ -1,11 +1,10 @@
 import React, {useState} from "react";
 import Chip from "@mui/material/Chip";
-import Paper from "@mui/material/Paper";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import StarRate from "@mui/icons-material/StarRate";
-
+import MovieIcon from '@mui/icons-material/Movie';
 
 const root = {
     display: "flex",
@@ -24,6 +23,9 @@ const ActorDetails = ({ actor }) => {  // Don't miss this!
     <>
       <Typography variant="h5" component="h3">
         Bio
+        <a href={`https://www.imdb.com/name/${actor.imdb_id}`}>
+          <MovieIcon color="primary" />
+        </a>
       </Typography>
 
       <Typography variant="h6" component="p">
@@ -36,20 +38,7 @@ const ActorDetails = ({ actor }) => {  // Don't miss this!
           icon={<StarRate />}
           label={`${actor.popularity}`}
         />
-        
-      <Fab
-        color="secondary"
-        variant="extended"
-        //onClick={() =>setDrawerOpen(true)}
-        sx={{
-          position: 'fixed',
-          bottom: '1em',
-          right: '1em'
-        }}
-      >
-        <NavigationIcon />
-        Reviews
-      </Fab>
+    
       </>
   );
 };

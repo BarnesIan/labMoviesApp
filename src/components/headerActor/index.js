@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 const ActorHeader = (props) => {
   const actor = props.actor;
   const navigate = useNavigate();
+  console.log(actor)
 
   return (
     <Paper 
@@ -27,10 +28,6 @@ const ActorHeader = (props) => {
       </IconButton>
 
       <Typography variant="h4" component="h3">
-        {actor.title}
-        <a href={"/actors"}>
-          <HomeIcon color="primary" />
-        </a>
         <br />
         <span sx={{ fontSize: "1.5rem" }}>{`   "${actor.name}"`} </span>
       </Typography>
