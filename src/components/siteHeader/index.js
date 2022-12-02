@@ -14,6 +14,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useAuth } from "../../contexts/authContext"
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
+import { Link } from "react-router-dom";
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
@@ -50,8 +51,8 @@ const SiteHeader = ({ history }) => {
     { label: "Playlist", path: "/movies/mustWatch" },
     { label: "Actors", path: "/actors" },
     { label: "Favorite Actors", path: "/actors/favourites" },
-    { label: "Signup", path: "/users/signup" },
-    { label: "Login", path: "/users/login" },
+    // { label: "Signup", path: "/users/signup" },
+    // { label: "Login", path: "/users/login" },
     //{ label: "Logout", handleLogOut},
 
     
@@ -111,7 +112,7 @@ const SiteHeader = ({ history }) => {
           </Typography>
           <>
           {currentUser !== null && <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            <strong>User: </strong> {currentUser.email}
+            <strong>Welcome: {currentUser.email}! </strong>
           </Typography>}
             </>
             {isMobile ? (
@@ -163,9 +164,30 @@ const SiteHeader = ({ history }) => {
                     onClick={() => handleMenuSelect(opt.path)}
                   >
                     {opt.label}
+                    
                   </Button>
 
                 ))}
+             <>   
+              {!currentUser &&<Link to = {'/users/login'} style = {{textDecoration: "none", color: "inherit"}}>
+             <Button
+            color = "inherit"
+            >
+            Login
+          
+          </Button>
+          </Link>} 
+          </>
+          <>   
+              {!currentUser &&<Link to = {'/users/signup'} style = {{textDecoration: "none", color: "inherit"}}>
+             <Button
+            color = "inherit"
+            >
+            Signup
+          
+          </Button>
+          </Link>} 
+          </>
                 {currentUser &&<Button
             color = "inherit"
             onClick={() => handleLogOut()}
