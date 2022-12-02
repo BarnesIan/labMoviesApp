@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useAuth } from "../../contexts/authContext"
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
@@ -22,6 +23,10 @@ const SiteHeader = ({ history }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const navigate = useNavigate();
+
+  const[error,setError]=useState("")
+  const{currentUser} = useAuth()
+  
 
   const menuOptions = [
     { label: "Home", path: "/" },
@@ -45,6 +50,10 @@ const SiteHeader = ({ history }) => {
     setAnchorEl(event.currentTarget);
   };
 
+  function handleLogOut(){
+
+  };
+
   return (
     <>
       <AppBar position="fixed" color="secondary">
@@ -55,6 +64,11 @@ const SiteHeader = ({ history }) => {
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             All you ever wanted to know about Movies!
           </Typography>
+          <>
+          {currentUser !== null && <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            <strong>User: </strong> {currentUser.email}
+          </Typography>}
+            </>
             {isMobile ? (
               <>
                 <IconButton

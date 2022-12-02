@@ -36,8 +36,8 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
+      <AuthProvider>
         <SiteHeader />
-        <AuthProvider>
         <MoviesContextProvider>
           <ActorsContextProvider>
           <Routes>

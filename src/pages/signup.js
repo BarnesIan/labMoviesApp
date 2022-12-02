@@ -48,7 +48,7 @@ export default function  SignUp() {
       setLoading(true)
       await signup(data.get('email'),data.get('password'))
       setTimeout(
-      navigate("/users/login"),5000);
+      navigate("/"),5000);
     } catch {
       setError("Account could not be created")
     }
