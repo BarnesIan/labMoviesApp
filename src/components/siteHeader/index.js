@@ -32,6 +32,8 @@ const SiteHeader = ({ history }) => {
     { label: "Actors", path: "/actors" },
     { label: "Favorite Actors", path: "/actors/favourites" },
     { label: "Signup", path: "/users/signup" },
+    { label: "Login", path: "/users/login" },
+
     
   ];
 

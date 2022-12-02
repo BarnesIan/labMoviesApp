@@ -17,8 +17,8 @@ import Alert from "@mui/material/Alert";
 import { useNavigate } from 'react-router-dom';
 const theme = createTheme();
 
-export default function  SignUp() {
-  const { signup } = useAuth()
+export default function  Login() {
+  const { login } = useAuth()
   const [error,setError] = useState("")
   const [loading,setLoading] = useState(false)
   const [open, setOpen] = React.useState(false);  //NEW
@@ -36,21 +36,16 @@ export default function  SignUp() {
     console.log({
       email: data.get('email'),
       password: data.get('password'),
-      passwordConfirm: data.get('passwordConfirm')
     })
-    
-    if(data.get('password') !== data.get('passwordConfirm')) {
-      return setError('Passwords do no match please confirm password')
-      
-    }
+
     try{
       setError('')
       setLoading(true)
-      await signup(data.get('email'),data.get('password'))
+      await login(data.get('email'),data.get('password'))
       setTimeout(
-      navigate("/users/login"),5000);
+      navigate("/"),5000);
     } catch {
-      setError("Account could not be created")
+      setError("Failed to sign in(email or password is incorrect!)")
     }
     setLoading(false)
     
@@ -78,7 +73,7 @@ export default function  SignUp() {
         onClose={handleSnackClose}
         >
         <Alert onClose={handleSnackClose}  severity="success" sx={{ width: '100%' }}>
-          Created User!
+          User Logged In!
           
         </Alert>
     
@@ -99,7 +94,7 @@ export default function  SignUp() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign up
+            Log in
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -124,18 +119,6 @@ export default function  SignUp() {
                   autoComplete="new-password"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="passwordConfirm"
-                  label="Password Confirmation"
-                  type="password"
-                  id="passwordConfrim"
-                  autoComplete="new-password"
-                  
-                />
-              </Grid>
             </Grid>
             <Button disabled = {loading}
               type="submit"
@@ -143,12 +126,12 @@ export default function  SignUp() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign Up
+              Login
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/users/login" variant="body2">
-                  Already have an account? Sign in
+                <Link href="/users/signup" variant="body2">
+                  Don't have an account? Signup
                 </Link>
               </Grid>
             </Grid>
