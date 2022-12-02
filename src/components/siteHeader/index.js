@@ -12,6 +12,8 @@ import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useAuth } from "../../contexts/authContext"
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
@@ -25,8 +27,20 @@ const SiteHeader = ({ history }) => {
   const navigate = useNavigate();
 
   const[error,setError]=useState("")
-  const{currentUser} = useAuth()
-  
+  const{currentUser, logout} = useAuth();
+  const[open1, setOpen1] = React.useState(false);  //NEW
+
+  async function handleLogOut(){
+    setOpen1(true)
+    setError('')
+    try{
+      await logout()
+      setTimeout(
+        navigate(0),5000);
+    }catch{
+      setError("Failed to logout")
+    }
+  }
 
   const menuOptions = [
     { label: "Home", path: "/" },
@@ -38,6 +52,7 @@ const SiteHeader = ({ history }) => {
     { label: "Favorite Actors", path: "/actors/favourites" },
     { label: "Signup", path: "/users/signup" },
     { label: "Login", path: "/users/login" },
+    //{ label: "Logout", handleLogOut},
 
     
   ];
@@ -50,17 +65,47 @@ const SiteHeader = ({ history }) => {
     setAnchorEl(event.currentTarget);
   };
 
-  function handleLogOut(){
-
+  const handleSnackClose = (event) => {
+    setOpen1(false);
   };
+    
+ 
 
   return (
     <>
       <AppBar position="fixed" color="secondary">
+        
         <Toolbar>
           <Typography variant="h4" sx={{ flexGrow: 1 }}>
             TMDB Client
           </Typography>
+          
+            
+          <>
+    {error && <Snackbar 
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        open={open1}
+        onClose={handleSnackClose}
+        >
+  
+        <Alert onClose={handleSnackClose} severity="error" sx={{ width: '100%' }}>
+          {error}
+        </Alert>
+      
+      </Snackbar>}
+      {!error &&<Snackbar 
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        open={open1}
+        onClose={handleSnackClose}
+        >
+        <Alert onClose={handleSnackClose}  severity="success" sx={{ width: '100%' }}>
+          Logged Out
+          
+        </Alert>
+    
+      </Snackbar>}
+      </>
+
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             All you ever wanted to know about Movies!
           </Typography>
@@ -103,7 +148,11 @@ const SiteHeader = ({ history }) => {
                       {opt.label}
                     </MenuItem>
                   ))}
+                <MenuItem onClick = {handleLogOut}>
+                    Logout
+                </MenuItem>
                 </Menu>
+                
               </>
             ) : (
               <>
@@ -115,10 +164,23 @@ const SiteHeader = ({ history }) => {
                   >
                     {opt.label}
                   </Button>
+
                 ))}
+                {currentUser &&<Button
+            color = "inherit"
+            onClick={() => handleLogOut()}
+            
+            >
+            Logout
+          
+          </Button>}
+            
               </>
+              
             )}
+            
         </Toolbar>
+       
       </AppBar>
       <Offset />
     </>

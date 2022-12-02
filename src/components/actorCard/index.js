@@ -52,18 +52,7 @@ if (favourites.find((id) => id === actor.id)) {
             }
           />
           <CardContent>
-          {/* <CardActions disableSpacing>
-          <IconButton aria-label="add to favourites" onClick={handleAddToFavourites}>
-        <FavoriteIcon color="primary" fontSize="large" />
-    </IconButton>
-        <Button variant="outlined" size="medium" color="primary">
-        <Link to={`/actors/${actor.id}`}>
-          <Button variant="outlined" size="medium" color="primary">
-            More Info ...
-          </Button>
-        </Link>
-        </Button>
-      </CardActions> */}
+        
           </CardContent>
           <CardActions disableSpacing>
             {action(actor)}
