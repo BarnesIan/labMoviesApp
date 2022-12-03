@@ -15,10 +15,12 @@ import { Link } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import { MoviesContext } from "../../contexts/moviesContext"
 import PlaylistAddCheckIcon from '@mui/icons-material/PlaylistAddCheck';
+import { useAuth } from "../../contexts/authContext";
 
 export default function MovieCard({ movie, action }) {
   const { favourites,mustWatch, addToFavourites } = useContext(MoviesContext);
- 
+  const{ currentUser } = useAuth();
+
    if (favourites.find((id) => id === movie.id)) {
      movie.favourite = true;
    } else {
@@ -78,15 +80,17 @@ export default function MovieCard({ movie, action }) {
             </Typography>
           </Grid>
         </Grid>
-      </CardContent>
-      <CardActions disableSpacing>
+      </CardContent> 
+      <>
+       {currentUser && <CardActions disableSpacing>
         {action(movie)}
         <Link to={`/movies/${movie.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>
         </Link>
-      </CardActions>
+      </CardActions>}
+      </>
     </Card>
   );
 }
