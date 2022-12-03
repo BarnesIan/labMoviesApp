@@ -1,7 +1,8 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Navigate, Routes,} from "react-router-dom";
 import HomePage from "./pages/homePage";
+import { Switch } from "@mui/material";
 import MoviePage from "./pages/movieDetailsPage";
 import FavouriteMoviesPage from "./pages/favouriteMoviesPage"; // NEW
 import FavouriteActorsPage from "./pages/favouriteActorsPage"; // NEW
@@ -20,7 +21,8 @@ import ActorsPage from './pages/actorsPage';
 import ActorsDetailsPage from './pages/actorDetailsPage';
 import SimilarMoviesPage from "./pages/similarMoviesPage";
 import Signup  from "./pages/signup"
-import Login  from "./pages/login"
+import Login  from "./pages/login";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -34,19 +36,20 @@ const queryClient = new QueryClient({
 
 const App = () => {
   return (
+  
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
       <AuthProvider>
         <SiteHeader />
         <MoviesContextProvider>
           <ActorsContextProvider>
-          <Routes>
+            <Routes>
             <Route path="/movies/trending" element={<TrendingMoviesPage/>} />
             <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
             <Route exact path="/movies/upcoming" element={<UpcomingMoviesPage />} />
-            <Route exact path="/movies/favourites" element={<FavouriteMoviesPage />} />
-            <Route exact path="/actors/favourites" element={<FavouriteActorsPage />} />
-            <Route exact path="/movies/mustWatch" element={<MustWatchMoviesPage />} />
+            <Route exact path="/movies/favourites" element={<PrivateRoute><FavouriteMoviesPage /></PrivateRoute>} />
+            <Route exact path="/actors/favourites" element={<PrivateRoute><FavouriteActorsPage /></PrivateRoute>} />
+            <Route exact path="/movies/mustWatch" element={<PrivateRoute><MustWatchMoviesPage /></PrivateRoute>} />
             <Route path="/actors/" element={<ActorsPage />} />
             <Route path="/actors/:id" element={<ActorsDetailsPage />} />
             <Route path="/movies/:id" element={<MoviePage />} />
@@ -56,13 +59,14 @@ const App = () => {
             <Route path="/reviews/:id" element={<MovieReviewPage />} />
             <Route path="/users/signup" element={<Signup />} />
             <Route path="/users/login" element={<Login />} />
-          </Routes>
+            </Routes>
           </ActorsContextProvider>
         </MoviesContextProvider>
         </AuthProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
+    
   );
 };
 

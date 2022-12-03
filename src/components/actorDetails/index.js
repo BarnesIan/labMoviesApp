@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 import Chip from "@mui/material/Chip";
-import NavigationIcon from "@mui/icons-material/Navigation";
-import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import StarRate from "@mui/icons-material/StarRate";
 import MovieIcon from '@mui/icons-material/Movie';
