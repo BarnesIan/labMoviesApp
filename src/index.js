@@ -2,7 +2,6 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Navigate, Routes,} from "react-router-dom";
 import HomePage from "./pages/homePage";
-import { Switch } from "@mui/material";
 import MoviePage from "./pages/movieDetailsPage";
 import FavouriteMoviesPage from "./pages/favouriteMoviesPage"; // NEW
 import FavouriteActorsPage from "./pages/favouriteActorsPage"; // NEW
@@ -24,6 +23,7 @@ import Signup  from "./pages/signup"
 import Login  from "./pages/login";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -33,6 +33,7 @@ const queryClient = new QueryClient({
     },
   },
 });
+
 
 const App = () => {
   return (
@@ -54,8 +55,8 @@ const App = () => {
             <Route path="/actors/:id" element={<ActorsDetailsPage />} />
             <Route path="/movies/:id" element={<MoviePage />} />
             <Route path="/movies/similar/:id" element={<SimilarMoviesPage />} />
-            <Route path="/" element={<HomePage />} />
-            <Route path="*" element={<Navigate to="/" />} />
+            <Route path="/page=:pageNumber" element={<HomePage />} />
+            <Route path="*" element={<Navigate to="/page=1" />} />
             <Route path="/reviews/:id" element={<MovieReviewPage />} />
             <Route path="/users/signup" element={<Signup />} />
             <Route path="/users/login" element={<Login />} />

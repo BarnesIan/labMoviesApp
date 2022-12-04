@@ -4,6 +4,8 @@ import FilterCard from "../filterMoviesCard";
 import MovieList from "../movieList";
 import Grid from "@mui/material/Grid";
 import WatchProviders from "../filterMoviesCard/watchProviders";
+import SiteFooter from "../siteFooter";
+import { Typography } from "@mui/material";
 
 function MovieListPageTemplate({ movies, title, action }) {
   const [nameFilter, setNameFilter] = useState("");
@@ -55,7 +57,12 @@ function MovieListPageTemplate({ movies, title, action }) {
         </Grid>
         <MovieList action={action} movies={displayedMovies} providers={{providerMovies}}></MovieList>
       </Grid>
+      <Grid item xs={12} >
+      <SiteFooter size = "large"></SiteFooter>
+      </Grid>
     </Grid>
+    
+    
   );
 }
 export default MovieListPageTemplate;

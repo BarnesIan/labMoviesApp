@@ -44,7 +44,7 @@ const SiteHeader = ({ history }) => {
   }
 
   const menuOptions = [
-    { label: "Home", path: "/" },
+    { label: "Home", path: "/page1" },
     { label: "Upcoming", path: "/movies/upcoming" },
     { label: "Trending", path: "/movies/trending" },
     { label: "Favourite Movies", path: "/movies/favourites" },
