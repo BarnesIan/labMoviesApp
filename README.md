@@ -110,13 +110,13 @@ The following commands may be required:
 >Firebase Authentication 
 
 ## Refences for implementation of Firebase
-+ [Firebase Documentation] (https://firebase.google.com/docs?gclid=CjwKCAiAksyNBhAPEiwAlDBeLFmJbo_e3-ogmR35UAUMkE9IIanL7VSwEQbkimCxlwelRP1Ae2hmqBoC1H8QAvD_BwE&gclsrc=aw.ds)
++ [Firebase Documentation](https://firebase.google.com/docs?gclid=CjwKCAiAksyNBhAPEiwAlDBeLFmJbo_e3-ogmR35UAUMkE9IIanL7VSwEQbkimCxlwelRP1Ae2hmqBoC1H8QAvD_BwE&gclsrc=aw.ds)
 
-+ [Youtube video + PrivateRoutes] (https://www.youtube.com/watch?v=PKwu15ldZ7k)
++ [Youtube video + PrivateRoutes](https://www.youtube.com/watch?v=PKwu15ldZ7k)
 + [Blog Post] (https://blog.logrocket.com/user-authentication-firebase-react-apps/)
 
 ![image](./images/pagintation.PNG)
 
 ## References for implenting pagination
-+ [Youtube video] (https://www.youtube.com/watch?v=IYCa1F-OWmk)
-+ [mui documentation] (https://mui.com/material-ui/react-pagination/)
++ [Youtube video](https://www.youtube.com/watch?v=IYCa1F-OWmk)
++ [mui documentation](https://mui.com/material-ui/react-pagination/)
