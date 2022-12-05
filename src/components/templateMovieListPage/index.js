@@ -24,9 +24,9 @@ function MovieListPageTemplate({ movies, title, action }) {
     .filter((m) => {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
     })
-    // .filter((m) => {
-    //   return providerId > 0 ? provider_ids.includes(providerId) : true;
-    // });
+    .filter((m) => {
+      return providerId > 0 ? m.provider_ids.includes(providerId) : true;
+    })
     .filter((m)=> {
       return  m.vote_average >= ratingFilter;
     })
