@@ -113,7 +113,7 @@ The following commands may be required:
 + [Firebase Documentation](https://firebase.google.com/docs?gclid=CjwKCAiAksyNBhAPEiwAlDBeLFmJbo_e3-ogmR35UAUMkE9IIanL7VSwEQbkimCxlwelRP1Ae2hmqBoC1H8QAvD_BwE&gclsrc=aw.ds)
 
 + [Youtube video + PrivateRoutes](https://www.youtube.com/watch?v=PKwu15ldZ7k)
-+ [Blog Post] (https://blog.logrocket.com/user-authentication-firebase-react-apps/)
++ [Blog Post](https://blog.logrocket.com/user-authentication-firebase-react-apps/)
 
 ![image](./images/pagintation.PNG)
 
