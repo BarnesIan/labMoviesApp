@@ -48,46 +48,46 @@ The following commands may be required:
 
 ### UI Design.
 
-![ ](./images/login.png)
+![image](./images/login.png)
 >Login Page taking in email and password. Log in will return to homepage logged in
 
-![ ](./images/signup.png)
+![image](./images/signup.png)
 
 >Signup Page takes in email address and password and password confirmation. Signup button will return to home page logged in
 
-![ ](./images/discoverPublic.png)
+![image](./images/discoverPublic.png)
 
 >DiscoverMovies/HomePage when user is not logged in. Clicking on FavouriteMovies,FavouriteActors and Playlist will navigate to log in first.
 
-![ ](./images/discoverPrivate.png)
+![image](./images/discoverPrivate.png)
 
 >DiscoverMovies/HomePage when user is logged in. Has access to movie details, actor Details, Adding to Favourites, Can add upcoming movies to mustWatch.
 
-![ ](./images/upcomingMovie.png)
+![image](./images/upcomingMovie.png)
 
 >Once logged in User can add upcoming movie to must Watch 
 
-![ ](./images/trendingMovie.png)
+![image](./images/trendingMovie.png)
 
 >Once logged in User can view trending movies by this week and add to favourites or more info
 
-![ ](./images/mustWatch.png)
+![image](./images/mustWatch.png)
 
 >Must Watch Page. User can remove, review or go to movie detail page
 
-![ ](./images/movieDetail.png)
+![image](./images/movieDetail.png)
 
 >Movie Details page added similar movies button and Cast members. Cast Members have more info button to bring to actors details
 
-![ ](./images/actorList.png)
+![image](./images/actorList.png)
 
 >List Page for Actors. Logged in users can add to favourites or Click Bio for actor Details Page
 
-![ ](./images/actorDetails.png)
+![image](./images/actorDetails.png)
 
 >Bio page for actors includes bio and popular rating chip, Button beside bio will direct to actors imdb page.
 
-![ ](./images/filterCard.png)
+![image](./images/filterCard.png)
 
 >Filter card allows for filtering by vote count average for that page. Watch Providers also implemented.
 ### Routing.
@@ -106,7 +106,7 @@ The following commands may be required:
 
 ## Independent learning (If relevant).
 
-![ ](./images/firebase.png)
+![image](./images/firebase.png)
 >Firebase Authentication 
 
 ## Refences for implementation of Firebase
@@ -115,7 +115,7 @@ The following commands may be required:
 + [Youtube video + PrivateRoutes] https://www.youtube.com/watch?v=PKwu15ldZ7k
 + [Blog Post] https://blog.logrocket.com/user-authentication-firebase-react-apps/
 
-![ ](./images/pagintation.png)
+![image](./images/pagintation.png)
 
 ## References for implenting pagination
 + [Youtube video] https://www.youtube.com/watch?v=IYCa1F-OWmk
